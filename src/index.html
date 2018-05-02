@@ -7,42 +7,56 @@
   <title>Hi Tone!</title>
   <script src="../scripts/tone.js"></script>
   <style>
+    body {
+        overflow:hidden;
+    }
     .center-screen {
       display: flex;
-      flex-direction: column;
+      flex-direction: line;
       justify-content: center;
       align-items: center;
       text-align: center;
       min-height: 100vh;
     }
-
-    .button.play {
-      background-color: inherit;
-      width: 74px;
-      height: 74px;
-      border-style: solid;
-      border-width: 37px;
-      border-color: #999;
-      border-width: 37px 37px 37px 37px;
-      border-color: red blue green yellow;
-      border-width: 37px 0px 37px 74px;
-      border-color: red blue green yellow;
+    .playButton {
+      border: 0;
+      background: transparent;
       box-sizing: border-box;
-      width: 74px;
+      width: 0;
       height: 74px;
-      border-width: 37px 0px 37px 74px;
-      border-color: transparent transparent transparent #999;
+      border-color: transparent transparent transparent #202020;
+      transition: 100ms all ease;
+      cursor: pointer;
+      border-style: solid;
+      border-width: 37px 0 37px 60px;
+      margin: 6px;
     }
-    .button.play:active {
-      border-color: transparent transparent transparent #333;
-      transform: translateY(3px);
+    .playButton.paused {
+      border-style: double;
+      border-width: 0px 0 0px 60px;
+      height: 69px;
+    }
+    .playButton:hover {
+      border-color: transparent transparent transparent #404040;
+    }
+    .stopButton {
+      border: 1px solid #202020;
+      width: 67px;
+      height: 69px;
+      background-color: #202020;
+      margin: 6px;
+    }
+    .stopButton:hover {
+      background-color: #404040;
+      border-color: #404040;
     }
   </style>
 </head>
 <body>
   <div id="app" class="center-screen">
-    <button id="soundBtn" class="button play" onClick="playSound();" />
+    <button id="playButton" class="playButton" onClick="playSound();" />
+    <button id="stopButton" class="stopButton" onClick="stopSound();" />
   </div>
 </body>
 </html>
-<script src="index.js"></script>
+<script src="../scripts/hiTone.js"></script>
